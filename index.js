@@ -17,4 +17,25 @@ const myModule = require('./utils/myModule');
 
 console.log(myModule);
 
-console.log(myModule.helloClass());
+
+const faker = require('faker');
+
+let randomName = faker.name.findName();
+console.log(randomName);
+
+const randomAddress = {
+    streetAddress: faker.address.streetAddress(),
+    city: faker.address.city(),
+    zipCode: faker.address.zipCode()
+}
+console.log(randomAddress);
+
+const axios = require('axios');
+
+axios.get('https://api.github.com/users/nneofotistos')
+.then(function(response) {
+    console.log(response.data);
+})
+.catch(function(err) {
+    console.log(err);
+});
